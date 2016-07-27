@@ -10,7 +10,9 @@ enum ColorMode{
 
 string winName;
 Mat img;
+Mat dst;
 string text;
+ColorMode colorMode;
 int contrastUp;
 int fontFace = FONT_HERSHEY_SCRIPT_SIMPLEX;
 double fontScale = 2;
@@ -184,22 +186,25 @@ int * getTextColor(Mat img, Point start, ColorMode colorMode, Size textSize,int 
     return color;
 }
 
-Mat writeTextOnImage(Mat& img, string text, Point start, int contrastUp ){
+Mat writeTextOnImage(Mat& img, string text, Point start, ColorMode colorMode, int contrastUp ){
     Mat dst = img.clone();
     Size textSize = getTextSize(text, fontFace,
                                 fontScale, fontThickness, 0);
-    int *color = getTextColor(dst, start, ColorMode::BEST, textSize,contrastUp);
+    int *color = getTextColor(dst, start, colorMode, textSize,contrastUp);
     putText(dst,text,start,fontFace,fontScale,CV_RGB( *(color+0),*(color+1),*(color+2)),fontThickness);
     return dst;
 }
 
 void onMouse(int event, int x, int y, int flags, void* userData) {
-    if  ( event == EVENT_LBUTTONDOWN ) {
+    if((event == EVENT_MOUSEMOVE && flags == 40/*CTRL*/)||(event == EVENT_LBUTTONDOWN)){
         Point *p = (Point *) userData;
         p->x = x;
         p->y = y;
-        Mat image = writeTextOnImage(img,text,*p,contrastUp);
-        imshow(winName,image);
+        dst = writeTextOnImage(img,text,*p, colorMode, contrastUp);
+        imshow(winName,dst);
+    }else {
+        if(!dst.empty())
+            imshow(winName,dst);
     }
 }
 
@@ -207,7 +212,7 @@ int main(int argc, char* argv[]){
     string imageName;
     if(argc ==2){
         imageName=argv[1];
-        text = "Welcome from Nepal";
+        text = "Love from Nepal!";
     }else  if(argc ==3){
         imageName=argv[1];
         text = argv[2];
@@ -215,6 +220,10 @@ int main(int argc, char* argv[]){
         cout << "Uses: " << argv[0] << " <image_path> [<text>]" << endl;
         exit(EXIT_SUCCESS);
     }
+
+    colorMode = ColorMode::BEST;
+    contrastUp = 20;
+
     winName ="Text on Image";
     cvNamedWindow(winName.c_str(), CV_WINDOW_AUTOSIZE);
 
@@ -226,11 +235,16 @@ int main(int argc, char* argv[]){
     }
     imshow(winName,img);
 
-    contrastUp = 20;
-
     Point point;
     setMouseCallback(winName, onMouse, (void*)&point);
 
-    waitKey(0);
+    for(;;) {
+        int c = waitKey(0);
+        if ((c & 255) == 27) {
+            cout << "Exiting ..."<<endl;
+            break;
+        }
+    }
+
     return 0;
 }
