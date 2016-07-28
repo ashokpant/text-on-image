@@ -7,6 +7,7 @@ Affiliation: Tribhuvan University, Kathmandu
 Web:         http://ashokpant.github.io
 Date:        July 27, 2016 
 -->
+
 # **Write on the image**
 Write on the image with automatic text color. Color is selected based on the input image.
 
@@ -28,12 +29,15 @@ Write on the image with automatic text color. Color is selected based on the inp
 	Note: [Uses: ./text-on-image <image_path> [<text>]]
 	Left mouse button click for specific location
 	CTRL + Mouse Move for free text move
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image.gif)
+
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image.gif  width ="640" height="480")
 	
 ## Other Examples
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image1.gif)
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image1.gif width ="640" height="480")
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image2.gif)
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image2.gif width ="640" height="480")
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image3.gif)
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image3.gif width ="640" height="480")
+
+
