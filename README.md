@@ -30,14 +30,16 @@ Write on the image with automatic text color. Color is selected based on the inp
 	Left mouse button click for specific location
 	CTRL + Mouse Move for free text move
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image.gif  width ="640" height="480")
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image.gif)
 	
 ## Other Examples
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image1.gif width ="640" height="480")
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image3.gif)
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image2.gif width ="640" height="480")
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image1.gif)
 
-![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image3.gif width ="640" height="480")
+![ ](https://github.com/ashokpant/text-on-image/blob/master/demo/text-on-image2.gif)
+
+
 
 
